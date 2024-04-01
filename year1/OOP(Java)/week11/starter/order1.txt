@@ -1,0 +1,9 @@
+I Sea Tea
+99 Phuttamonthon 4 Road, Salaya 
+Nakhon Pathom 73170 THAILAND
+
+[order]
+Coffee 2.50*2
+Latte 4.00*1
+Muffin 2.00*3
+Croissant 2.50*2
