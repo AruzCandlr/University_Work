@@ -23,6 +23,6 @@ jobs:
 
     - name: Compile Java
       run: |
-        cd master/HolidayTravelVehicles 
+        cd main/year 3/software design/HolidayTravelVehicle
         javac -d . *.java
       # Compile java file from directory
