@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run local JaoMonnBot
-        uses: AruzCandlr/University_Work@v1
+        uses: AruzCandlr/University_Work@main
         with:
           api_key: ${{ secrets.API_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
