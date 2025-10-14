@@ -7,8 +7,12 @@ on:
 jobs:
   bot:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Run JaoMonnBot
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run local JaoMonnBot
         uses: ./
         with:
           api_key: ${{ secrets.API_KEY }}
