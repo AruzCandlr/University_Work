@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run JaoMonnBot
-        uses: AruzCandlr/jaomonnbot-action@v1
+        uses: ${{ github.repository}}
         with:
           api_key: ${{ secrets.API_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
