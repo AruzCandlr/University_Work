@@ -1,0 +1,15 @@
+name: Test JaoMonnBot
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run JaoMonnBot
+        uses: AruzCandlr/jaomonnbot-action@v1
+        with:
+          api_key: ${{ secrets.API_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
