@@ -1,2 +1,16 @@
-- name: JaoMonnBot
-  uses: AruzCandlr/MonnAboveTest@adhdXD
+name: Test JaoMonnBot
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  bot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run local JaoMonnBot
+        uses: AruzCandlr/MonnAboveTest@adhd
+        with:
+          api_key: ${{ secrets.API_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
