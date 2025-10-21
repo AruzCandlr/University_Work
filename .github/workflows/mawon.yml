@@ -14,7 +14,7 @@ jobs:
       - name: Run JaoMonnBot
         uses: AruzCandlr/MonnAboveTest@monnmonnXD.v2
         with:
-          openai_api_key: ${{ secrets.OPENAI_API_KEY }}
+          openai_api_key: ${{ secrets.API_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           issue_number: ${{ github.event.issue.number }}
           repo: ${{ github.repository }}
