@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Run JaoMonnBot
         # uses: AruzCandlr/MonnAboveTest@monnmonnXD.v3
-        uses:AruzCandlr/MonnAboveTest@gemimonnnn
+        uses: AruzCandlr/MonnAboveTest@gemimonnnn
         with:
           openai_api_key: ${{ secrets.API_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
