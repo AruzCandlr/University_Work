@@ -1,2 +1,20 @@
-- name: JaoMonnBot
-  uses: AruzCandlr/MonnAboveTest@adhd
+name: mawon
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  respond-to-issue:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    
+    steps:
+      - name: Run JaoMonnBot
+        uses: AruzCandlr/JaoMonnBot@v1  # Replace with your actual repository name
+        with:
+          openai_api_key: ${{ secrets.OPENAI_API_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          issue_number: ${{ github.event.issue.number }}
+          repo: ${{ github.repository }}
