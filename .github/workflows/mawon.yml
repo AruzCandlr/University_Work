@@ -1,9 +1,10 @@
 name: MonnetalX
 
 on:
-  issues:
-    types: [opened]
-
+  # issues:
+    # types: [opened]
+  pull_request
+  
 jobs:
   respond-to-issue:
     runs-on: ubuntu-latest
@@ -18,5 +19,5 @@ jobs:
         with:
           openai_api_key: ${{ secrets.API_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          issue_number: ${{ github.event.issue.number }}
+          pr_number: ${{ github.event.pull_request.number }}
           repo: ${{ github.repository }}
