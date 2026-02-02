@@ -1,9 +1,9 @@
 name: MonnetalX
 
 on:
-  # issues:
-    # types: [opened]
-  pull_request
+  issues:
+    types: [opened]
+  # pull_request
   
 jobs:
   respond-to-issue:
