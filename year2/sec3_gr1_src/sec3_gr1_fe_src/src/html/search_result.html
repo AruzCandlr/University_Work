@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--import bootstrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <!-- jQuery -->
+
+
+
+</head>
+
+
+<body style="background-color:#E5F9FF">
+  <header class="p-4" style="background-color:#4A82A5">
+
+    <h1 class="display-1 text-fluid img-fluid text-center t-25" style="color:aliceblue">
+      <b>PoggoTOYs </b>
+    </h1>
+  </header>
+
+  <h4 class="text-sm-fluid text-center p-3" style="color:rgb(255, 179, 0)">^w^ Galaxy finest toy shop for weeaboo</h4>
+
+ 
+  
+  <!--nav bar-->
+  <div id="navInit"></div>
+  <script src="nav.js"></script>
+  <div id='search'></div>
+  <script src='searchbar.js'> </script>
+
+  <h1 class="display-3 text-center" style = "color:#4A82A5"> Search Result </h1>
+
+
+  <section id="productGen"></section>
+  <script src="product_card.js"></script>
+  
+  <!--fetch this fetch that, have you ever touch grasses?-->
+  <script id='search result'>
+
+      fetch('http://localhost:8125/searchProduct/'+window.localStorage.getItem('search_value'))
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        var temp =''
+        if(data.data.length==1){
+          temp += createCol(data.data[0].image_url, data.data[0].name, data.data[0].price, '/product/'+data.data[0].name, data.data[0].item_id);
+        }else{
+
+          for(let i=0;i<data.data.length;i++){
+              var info = data.data[i];
+              temp += createCol(info.image_url, info.name, info.price, '/product/'+data.data[i].name, data.data[i].item_id)
+            }
+          }
+      
+      window.localStorage.removeItem('search_value')
+        cardInit(
+          temp
+      )
+      })
+  </script>
+
+
+
+
+  <footer class = "footer p-5" style="background-color:#4A82A5"></footer>
+
+</body>
+
+</html>

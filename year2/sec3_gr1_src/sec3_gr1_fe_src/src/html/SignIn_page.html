@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" contend="IE=egde">
+        <meta name="viewpoint" contend="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="SignIn_page.css">
+
+        <title>Sign-in</title>
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <form onsubmit="userData(data)">
+
+                <center>
+                    <h1>Sign In</h1>
+                </center>
+                <div class="input-box-name">
+                    <input type="text" id="fname" placeholder="first name" required>
+                    <input type="text" id="lname" placeholder="last name" required>
+                </div>
+
+                <div class="input-box">
+                    <input type="text" id="username" placeholder="username" required>
+                </div>
+
+                <div class="input-box">
+                    <input type="tel" id="phone_num" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="phone number (xxx-xxx-xxxx)">
+                </div>
+
+                <div class="input-box">
+                    <input type="email" id="email" placeholder="email" required>
+                </div>
+
+                <div class="input-box">
+                    <input type="password" id="password" placeholder="password" required>
+                </div>
+
+                <div class="check-box">
+                    <input type="checkbox" required>You agree to our <a href="#">Policy</a>
+                </div>
+
+                <button type="submit" class="btn">SIGN IN</button>
+            </form>
+
+        </div>
+            <script type="text/javascript">
+                function userData(data){
+                    data.preventDefault();
+
+                    var fname = document.getElementById("fname").value;
+                    var lname = document.getElementById("lname").value;
+                    var username = document.getElementById("username").value;
+                    var phone_num = document.getElementById("phone_num").value;
+                    var email = document.getElementById("email").value;
+                    var password = document.getElementById("password").value;
+
+                    localStorage.setItem('Is_fname', fname);
+                    localStorage.setItem('Is_lname', lname);
+                    localStorage.setItem('Is_username', username);
+                    localStorage.setItem('Is_phone_num', phone_num);
+                    localStorage.setItem('ls_email', email);
+                    localStorage.setItem('ls_password', password);
+                }
+            </script>
+
+          
+    </body>
+</html>

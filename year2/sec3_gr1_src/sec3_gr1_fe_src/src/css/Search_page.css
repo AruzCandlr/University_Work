@@ -1,0 +1,242 @@
+/* *{
+    background: #E5F9FF;
+} */
+
+/* body{
+    background: #E5F9FF;
+}
+
+body form{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.dropdown{
+    min-width: 15em;
+    position: relative;
+    margin: 2em;
+}
+
+.dropdown *{
+    box-sizing: border-box;
+}
+
+.select{
+    background: #2a2f3b;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px #2a2f3b solid;
+    border-radius: 0.5em;
+    padding: 1em;
+    cursor: pointer;
+    transition: background 0.3s;
+    transition: 0.3s;
+}
+
+.select-clicked{
+    border: 2px #2a2f3b solid;
+    box-shadow: 0 0 0.8em #2a2f3b;
+}
+
+.select:hover{
+    background: #323741;
+}
+
+.caret{
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #fff;
+    transform: 0.3s;
+}
+
+.caret-rotate{
+    transform: rotate(180deg);
+}
+
+.menu{
+    list-style: none;
+    padding: 0.2em 0.5em;
+    background: #323741;
+    border: 1px #363a43 solid;
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+    border-radius: 0.5em;
+    color: #9fa5b5;
+    position: absolute;
+    top: 3em;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    opacity: 0;
+    display: none;
+    transition: 0.2s;
+    z-index: 1;
+}
+
+.main li{
+    padding: 0.7em 0.5em;
+    margin: 0.3em 0;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+.menu li:hover{
+    background: #2a2d35;
+}
+
+.active{
+    background: #23242a;
+}
+
+.menu-open{
+    display: block;
+    opacity: 1;
+} */
+
+/* Lmaoooooooooooooooooooooooooooooooooooo */
+/* body{
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    background: #fafafa;
+} */
+
+body{
+    background: #E5F9FF;
+}
+
+
+
+.band {
+    background: #fff;
+    position: relative;
+    margin-top: 100px;
+    width: 300px;
+    height: 50px;
+    float: left;
+    border: 1px solid;
+    color: #4A82A5;
+}
+
+.band p{
+    padding: 0px 0px 0px 125px;
+}
+
+.dropdown-band{
+    /* background: salmon; */
+    position: relative;
+    margin-top: 100px;
+    width: 300px;
+    height: 30px;
+    float: left;
+    margin-left: 50px;
+    /* border: 1px solid;
+    color: #4A82A5; */
+    
+}
+
+.dropdown-band::before{
+    content: '';
+    position: absolute;
+    right: 0px;
+    top: 15px;
+    width: 8px;
+    height: 8px;
+    z-index: 10000;
+    border: 2px solid #4A82A5;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: rotate(-45deg);
+    transform: 0.5s;
+    pointer-events: none;
+}
+
+.dropdown-band.active::before{
+    top: 22px;
+    transform: rotate(-225deg);
+}
+
+.dropdown-band input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    /* background: #333; */
+    border: 1px solid;
+    color: #4A82A5;
+    /* border: none; */
+    outline: none;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    padding: 12px 20px;
+    /* border-radius: 10px; */
+}
+
+.dropdown-band input placeholder{
+    color: #4A82A5;
+}
+
+.dropdown-band .option{
+    position: absolute;
+    top: 70px;
+    width: 113%;
+    background: #fff;
+    border: 1px solid;
+    color: #4A82A5;
+    box-shadow: 0 30px 30px rgba(0,0,0,0.05);
+    overflow: hidden;
+    display: none;
+}
+
+.dropdown-band.active .option{
+    display: block;
+}
+
+.dropdown-band .option div{
+    padding: 12px 20px;
+    cursor: pointer;
+}
+
+.dropdown-band .option div:hover{
+    background: #4A82A5;
+    color: #fff;
+}
+
+.series {
+    background: #fff;
+    position: relative;
+    margin-top: 100px;
+    right: 500px;
+    width: 300px;
+    height: 50px;
+    float: left;
+    border: 1px solid;
+    color: #4A82A5;
+}
+
+.series p{
+    padding: 0px 0px 0px 125px;
+}
+
+/* .input-series input{
+    position: relative;
+    margin-top: -52px;
+    margin-left: 351px;
+    width: 335px;
+    height: 50px;
+    float: left;
+    border: 1px solid;
+    color: #4A82A5;
+} */
+
+.input-series input::placeholder{
+    color: #4A82A5;
+    /* padding: 0px 0px 0px 10px */
+}

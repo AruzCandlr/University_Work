@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--import bootstrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script type="application/javascript">
+
+   
+ 
+let output = '<table class = "align-items-center justify-content-center table table-striped table-hover table-bordered"><tr><th>username</th><th>name</th><th>surname</th>'
+
+output+='<th> </th></tr>'
+
+      
+      fetch('http://localhost:8125/AccountManagement')
+        .then((res) => res.json())
+        .then((data) => {
+          
+          const result = JSON.parse(JSON.stringify(data, null, "\t"))
+          //let result = JSON.parse(data)
+          for (let i = 0; i < result.data.length; i++) {
+            //g are data you suppose to get from json, put it in when u fetch that
+            output = output + ` <tr><td>`+result.data[i].username+`</td><td>`+result.data[i].fname+`</td><td>`+result.data[i].lname+`</td> <td><button onclick="window.location.href='/ca_edit';window.localStorage.setItem('customer_id',`+result.data[i].customer_id+`)">click here to manage</button></td></tr>`
+          }
+
+          document.getElementById("out").innerHTML = output
+        });
+    
+
+  </script>
+
+</head>
+
+<style>
+  body {
+    background-color: #E5F9FF;
+  }
+
+  header .p-4 {
+    background-color: #4A82A5;
+  }
+</style>
+
+
+<body>
+
+  <header class="p-4" style="background-color:#4A82A5">
+
+    <h1 class="display-1 text-fluid img-fluid text-center t-25" style="color:aliceblue">
+      <b>PoggoTOYs </b>
+    </h1>
+  </header>
+
+  <h4 class="text-sm-fluid text-center p-3" style="color:rgb(255, 179, 0)">Customer Account Management</h4>
+
+  <!--nav bar-->
+  <div id="navInit"></div>
+  <script src="/nav.js"></script>
+
+  
+  <button type="button" class="btn btn-primary" style="margin:3%; margin-left: 0;" onclick="window.location.href='/admin_account'">
+    back to admin account
+  </button>
+  
+  <div id="out"></div>
+
+
+  <form action="add_ca">
+    <button type="submit" class="btn btn-primary" style="margin:3%; margin-left: 0;">
+     + add new account here
+    </button>
+  </form>
+
+  <footer class="footer  p-5" style="background-color:rgb(31, 65, 65)"></footer>
+
+</body>
+
+</html>

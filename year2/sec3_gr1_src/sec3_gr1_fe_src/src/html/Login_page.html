@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" contend="IE=egde">
+  <meta name="viewpoint" contend="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/Login_page.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> <!--Web นอก-->
+
+  <!--กูขอลองเอา bootstrap มาใส่นะ-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+  <title>Login Form</title>
+</head>
+
+<body style="background-color: #E5F9FF;">
+
+  <!--nav bar-->
+  <div id="navInit"></div>
+  <script src="nav.js"></script>
+
+
+  <div class="wrapper form-control w-50">
+    <form class='form' action="">
+
+      <h1>Login</h1>
+      <div class="signup-link">
+        <p>Doesn't have account yet? <a href="SignIn_page">Sign up</a></p>
+      </div>
+
+      <div class="input-box">
+        <p>Username</p>
+        <input type="text" placeholder="username" id="username" required />
+      </div>
+      <br>
+      <div class="input-box">
+        <p>Password</p>
+        <input type="password" placeholder="password" id='password' required />
+        <!-- <i class='bx bxs-shield'></i> -->
+      </div>
+    <br>
+      <div class="forgotpassword-link">
+        <a href="#">Forgot Password?</a>
+      </div>
+  <br>
+      <button type="submit" class="btn" onclick="login()">
+        <p>LOG IN</p>
+      </button>
+  <br><br>
+      <div class="policy-link">
+        <center>
+          <p><a href="#">Policy</a></p>
+        </center>
+      </div>
+
+    </form>
+  </div>
+
+<script>
+  
+function login(){
+  const formAns = document.querySelector('.form')
+
+      formAns.addEventListener('submit', event => {
+        event.preventDefault();
+      });
+    
+  var user = document.getElementById("username").value;
+  var pass = document.getElementById('password').value;
+  
+  // John Chena
+  // VivaLaVida
+
+  fetch('http://localhost:8125/login/'+user+'/'+pass)
+  .then(res => res.json())
+  .then(data => {
+    if(data.data.length==0){
+      alert("username not found, or password does not match username");
+      window.location.href='/login_page';
+    }else{
+      window.localStorage.setItem('loginStatus','True')
+      if(data.data[0].type=='Customer'){
+        window.sessionStorage.setItem("type", data.data[0].type);
+        sessionStorage.setItem('customer_id',data.data[0].customer_id)
+        window.location.href='/home';
+      }else{
+        sessionStorage.setItem('admin_id',data.data[0].admin_id)
+        window.location.href='/login'
+      }
+      
+    }
+  })
+}
+
+
+</script> 
+
+
+  <!-- <script>
+      
+
+        const formData = new FormData(formAns);
+        const data = Object.fromEntries(formData);
+        
+        // fetch('http://localhost:8125/login/'+'/'+V)
+     
+  </script> -->
+
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+async function addItemInfo(){
+
+
+      const formAns = document.querySelector('.form-control')
+
+    formAns.addEventListener('submit', event => {
+      event.preventDefault();
+    });
+    
+   await fetch('http://localhost:8125/ProductManagement',{
+        method: 'POST',
+        headers:{
+          'Content-Type':'application/json'
+        },
+        body: JSON.stringify({
+          admin_id: sessionStorage.getItem('admin_id'),
+          item_name: document.querySelector('#item_name').value,
+          quantity: document.querySelector('#quantity').value,
+          description: document.querySelector('#description').value,
+          price: document.querySelector('#price').value,
+          brand: document.querySelector('#brand').value,
+          series: document.querySelector('#series').value,
+          item_type: document.querySelector('#item_type').value,
+        })
+      })
+      .then(res=>res.json())
+      .then(data =>{
+      return data; 
+    })
+
+      async function part2(data){
+        console.log(data)
+        var item_id = data.data.insertId
+        for(let i=0;i<5;i++){
+          
+          var formData = new FormData();
+          var imageInput=document.getElementById('pic'+i).files[0]
+          formData.append('image',imageInput);
+          fetch('https://api.imgbb.com/1/upload?key=e57a08e42b7968cde7c36bea9b3b53bb',{
+            method: 'POST',
+            body: formData,
+          })
+          .then(res => res.json())
+          .then(data=>{
+            return data;
+          })
+        }
+        //window.location.href='/item_manage';
+        
+      }
+
+     async function part3(i){
+        var itemNum = i;
+            if(i==0){
+              var isThumb = 1;
+            }else{
+              isThumb = 0;
+            }
+            var imgNum = '('+i+')';
+
+            console.log(data.data.display_url)
+            fetch('http://localhost:8125/ImageAdd',{
+              method: 'POST',
+              headers:{
+                'Content-Type':'application/json'
+              },
+              body: JSON.stringify({
+                isThumbnail: isThumb,
+                item_name: document.querySelector('#item_name').value,
+                url: data.data.display_url, 
+                item_id: item_id,
+                imgNum: imgNum
+              })
+            })
+      }
